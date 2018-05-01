@@ -10,6 +10,7 @@ use pocketmine\item\Item;
 use pocketmine\event\Listener;
 use pocketmine\utils\Config;
 use pocketmine\inventory\BaseInventory;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\inventory\Inventory;
 use pocketmine\event\player\PlayerInteractEvent;
 class Main extends PluginBase implements Listener {
@@ -18,10 +19,15 @@ public function onEnable(): void {
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->getLogger()->info("Plugin has been enabled.");
 }
+      public function onJoin(PlayerJoinEvent $ev) {
+	      $player = $ev->getPlayer();
+	      $player->getInventory()->clearAll();
+	      $inventory = $player->getInventory();
+              $player->getInventory()->setItem(2, Item::get(347)->setCustomName("§a§lGames Selector\n§5§lSelect a Game to play!\n(§bTap me!)"));
+      }
       public function onInteract(PlayerInteractEvent $ev) {
 	   $player = $ev->getPlayer();
            $player = $player->getName();
-           $inventory = $player->getInventory();
            $player->getInventory()->setItem(2, Item::get(345)->setCustomName("§a§lGames Selector\n§5§lSelect a Game to play!\n(§bTap me!)"));
        $item = $ev->getItem();
           if($item->getCustomName() == "§a§lGames Selector!\n§5Select a Game to play!\n(§bTap me!)"){
