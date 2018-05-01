@@ -21,7 +21,6 @@ public function onEnable(): void {
 }
       public function onJoin(PlayerJoinEvent $ev) {
 	      $player = $ev->getPlayer();
-	      $player->getInventory()->clearAll();
 	      $inventory = $player->getInventory();
               $player->getInventory()->setItem(2, Item::get(347)->setCustomName("§a§lGames Selector\n§5§lSelect a Game to play!\n(§bTap me!)"));
       }
