@@ -27,9 +27,7 @@ public function onEnable(): void {
       }
       public function onInteract(PlayerInteractEvent $ev) {
 	   $player = $ev->getPlayer();
-           $player = $player->getName();
-	   $inventory = $player->getInventory();
-           $player->getInventory()->setItem(2, Item::get(345)->setCustomName("§a§lGames Selector\n§5§lSelect a Game to play!\n(§bTap me!)"));
+           $name = $player->getName();
        $item = $ev->getItem();
           if($item->getCustomName() == "§a§lGames Selector!\n§5Select a Game to play!\n(§bTap me!)"){
               
@@ -41,16 +39,16 @@ public function onEnable(): void {
             $player->getInventory()->setItem(6, Item::get(322)->setCustomName("§6U§bH§cC\n§bUHC = UltraHardCore.\n§cYou're in a survival map\n§dbut things get extremly hard.\n§eThere's no: Regeneration\n§1When you die, you get banned\n§2until the game is over.\n§3Coming Soon"));
             
           }elseif($item->getCustomName() == "§6Murder§bMystery\n§bThere's one murder, one bystanderd, and everyone else is innocent.\n§aObjectives:\n§bMurder - §3Has to kill everyone to win.\n§cBystanderd - §4Has a gun, they're suppose to kill the murderer to win.\n§dInnocent - §5Make sure you don't get killed.\n§dComing Soon!"){
-			$player->sendMessage("§c§lNew Game Coming Soon!");
+			$name->sendMessage("§c§lNew Game Coming Soon!");
 	  
       }elseif($item->getCustomName() == "§6Sky§bWars\n§bYou're in the sky, you have to:\n§cLoot chests, Get good loot\n§dand kill players!\n§eLast man standing wins!\n§1Coming Soon."){
-			$player->sendMessage("§c§lNew Game Coming Soon!");
+			$name->sendMessage("§c§lNew Game Coming Soon!");
 		  
       }elseif($item->getCustomName() ==  "§6Survival§bGames\n§bYou're in a survival area, filled with chests\n§cFilled with Loot\n§dYour objective is to\n§eKill the players.\n§1Last man standing wins.\n§2Coming soon."){
-			$player->sendMessage("§c§lNew Game Coming Soon!");
+			$name->sendMessage("§c§lNew Game Coming Soon!");
 		  
       }elseif($item->getCustomName() == "§6U§bH§cC\n§bUHC = UltraHardCore.\n§cYou're in a survival map\n§dbut things get extremly hard.\n§eThere's no: Regeneration\n§1When you die, you get banned\n§2until the game is over.\n§3Coming Soon"){
-		  	$player()->sendMessage("§c§lNew Game Coming Soon!");
+		  	$name->sendMessage("§c§lNew Game Coming Soon!");
 		}
 	    return true;
       }
