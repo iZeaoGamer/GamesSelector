@@ -28,6 +28,7 @@ public function onEnable(): void {
       public function onInteract(PlayerInteractEvent $ev) {
 	   $player = $ev->getPlayer();
            $player = $player->getName();
+	   $inventory = $player->getInventory();
            $player->getInventory()->setItem(2, Item::get(345)->setCustomName("§a§lGames Selector\n§5§lSelect a Game to play!\n(§bTap me!)"));
        $item = $ev->getItem();
           if($item->getCustomName() == "§a§lGames Selector!\n§5Select a Game to play!\n(§bTap me!)"){
